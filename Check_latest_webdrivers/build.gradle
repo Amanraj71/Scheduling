@@ -45,6 +45,20 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+test{
+	useTestNG(){
+		useDefaultListeners = true 
+		suiteXmlFiles << new File("src/test/java/testng.xml")
+		setSuiteXmlFiles(suiteXmlFiles)
+				}
+}
+
+task listJars {
+    configurations.compile.each {              
+        File file -> println file.name       
+    }
+}
+
 task hello { 
     doLast { 
         println 'Hello, World!'
